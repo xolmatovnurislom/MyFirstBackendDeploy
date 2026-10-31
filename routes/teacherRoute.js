@@ -5,7 +5,7 @@ const authMiddleware = require("../middleWares/authMiddleware")
 
 router.get(
     "/teachers",
-    authMiddleware, teacherController.getTeachers
+    teacherController.getTeachers
 )
 
 router.get(
