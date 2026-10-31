@@ -1,0 +1,12 @@
+const express = require("express")
+const connectDB = require("./config/db")
+const app = express()
+const teacherRouter = require("./routes/teacherRoute")
+const studentRouter = require("./routes/studentRoute")
+
+app.use(express.json())
+connectDB()
+app.use("/api", teacherRouter)
+app.use("/api", studentRouter)
+app.use((req, res) => res.status(404).send("Sahifa topilmadi!"))
+app.listen(5550, () => console.log("Server express orqali ishlamoqda PORT: 5550"))
