@@ -1,9 +1,11 @@
 const express = require("express")
 const connectDB = require("./config/db")
+const cors = require("cors")
 const app = express()
 const teacherRouter = require("./routes/teacherRoute")
 const studentRouter = require("./routes/studentRoute")
 
+app.use(cors({origin: "http://localhost:5173/"}))
 app.use(express.json())
 connectDB()
 app.use("/api", teacherRouter)
